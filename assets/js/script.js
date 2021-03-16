@@ -109,14 +109,14 @@ const specialCharactersArray = [
 ];
 
 // prompt user for length of password store as variable
-const passwordLength = prompt("What length password do you want?");
+const passwordLength = prompt("Pick a password length between 8 and 128");
 console.log(typeof passwordLength, passwordLength);
 
 // validated length of password
 if (passwordLength >= 8 && passwordLength <= 128) {
   console.log("yes");
 } else {
-  alert("Please pick a password length between 8 and 128");
+  alert("Your password length MUST be between 8 and 128");
 }
 
 // convert string to number parseInt()
@@ -143,26 +143,46 @@ console.log(optionsArray);
 //if yes add to options array.
 if (wantLowercase) {
   optionsArray = optionsArray.concat(lowerCaseArray);
-} else if (wantUpperCase) {
-  optionsArray = optionsArray.concat(upperCaseArray);
-} else if (wantNumbers) {
-  optionsArray = optionsArray.concat(numbersArray);
-} else if (wantSpecialCharacters) {
-  optionsArray = optionsArray.concat(specialCharactersArray);
 }
-
 console.log(optionsArray);
 
-// make sure they pick at least 1 option
-// if optionsArray length === 0 alert
+if (wantUpperCase) {
+  optionsArray = optionsArray.concat(upperCaseArray);
+}
+console.log(optionsArray);
+if (wantNumbers) {
+  optionsArray = optionsArray.concat(numbersArray);
+}
+console.log(optionsArray);
 
+if (wantSpecialCharacters) {
+  optionsArray = optionsArray.concat(specialCharactersArray);
+}
+console.log(optionsArray);
+
+// validate length of optionsArray
 if (optionsArray.length === 0) {
   alert("You must pick at least one character type for your password");
 }
 
-// shuffle array
+//use fisher yates algorithm to shuffle optionsArray
+let shuffleArray = function (arr) {
+  let newPosition, temp;
+  for (let i = optionsArray.length - 1; i > 0; i--) {
+    newPosition = Math.floor(Math.random() * (i + 1));
+    temp = arr[i];
+    arr[i] = arr[newPosition];
+    arr[newPosition] = temp;
+  }
+};
 
-// get random optionsArray character using index
+const shuffledOptionsArray = shuffleArray(optionsArray);
+
+console.log(optionsArray);
+
+// console.log(optionsArray)
+
+// get random optionsArray character using index using passwordlengthNumber
 
 //store in randomArray
 
