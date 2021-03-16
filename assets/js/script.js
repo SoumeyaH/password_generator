@@ -176,11 +176,8 @@ let shuffleArray = function (arr) {
   }
 };
 
-const shuffledOptionsArray = shuffleArray(optionsArray);
-
+shuffleArray(optionsArray);
 console.log(optionsArray);
-
-// console.log(optionsArray)
 
 // get random optionsArray character using index using passwordlengthNumber
 
@@ -189,3 +186,9 @@ console.log(optionsArray);
 //change randomArray to string
 
 //set up main function
+
+for (i = 0; i < passwordLengthNumber; i++) {
+  let passwordArray[] =
+    optionsArray[Math.floor(Math.random() * optionsArray.length)];
+  console.log(passwordArray);
+}
