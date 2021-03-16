@@ -123,23 +123,42 @@ if (passwordLength >= 8 && passwordLength <= 128) {
 const passwordLengthNumber = parseInt(passwordLength);
 console.log(typeof passwordLengthNumber, passwordLengthNumber);
 
+//confirm which characters to put in password.
+const wantLowercase = confirm(
+  "Do you want lowercase characters in your password?"
+);
+const wantUpperCase = confirm(
+  "Do you want uppercase characters in your password?"
+);
+const wantNumbers = confirm("Do you want number characters in your password?");
+
+const wantSpecialCharacters = confirm(
+  "Do you want special characters in your password?"
+);
+
 // declare options array
 let optionsArray = [];
 console.log(optionsArray);
 
-// confirm which characters to put in password. if yes add to options array.
-if (confirm("Do you want lowercase characters in your password?")) {
+//if yes add to options array.
+if (wantLowercase) {
   optionsArray = optionsArray.concat(lowerCaseArray);
-  console.log(optionsArray);
-} else if (confirm("Do you want uppercase characters in your password?")) {
+} else if (wantUpperCase) {
   optionsArray = optionsArray.concat(upperCaseArray);
-} else if (confirm("Do you want number characters in your password?")) {
+} else if (wantNumbers) {
   optionsArray = optionsArray.concat(numbersArray);
-} else if (confirm("Do you want special characters in your password?")) {
+} else if (wantSpecialCharacters) {
   optionsArray = optionsArray.concat(specialCharactersArray);
 }
 
+console.log(optionsArray);
+
 // make sure they pick at least 1 option
+// if optionsArray length === 0 alert
+
+if (optionsArray.length === 0) {
+  alert("You must pick at least one character type for your password");
+}
 
 // shuffle array
 
