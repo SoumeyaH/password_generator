@@ -12,6 +12,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// declare arrays
 const lowerCaseArray = [
   "a",
   "b",
@@ -108,44 +109,37 @@ const specialCharactersArray = [
 ];
 
 // prompt user for length of password store as variable
-// convert string to number parseInt()
-
-// validated length of password
-
 const passwordLength = prompt("What length password do you want?");
 console.log(typeof passwordLength, passwordLength);
 
+// validated length of password
 if (passwordLength >= 8 && passwordLength <= 128) {
   console.log("yes");
 } else {
   alert("Please pick a password length between 8 and 128");
 }
 
+// convert string to number parseInt()
 const passwordLengthNumber = parseInt(passwordLength);
 console.log(typeof passwordLengthNumber, passwordLengthNumber);
 
-// function validatedPasswordLength(passwordLengthNumber) {
+// declare options array
+let optionsArray = [];
+console.log(optionsArray);
 
-// }
+// confirm which characters to put in password. if yes add to options array.
+if (confirm("Do you want lowercase characters in your password?")) {
+  optionsArray = optionsArray.concat(lowerCaseArray);
+  console.log(optionsArray);
+} else if (confirm("Do you want uppercase characters in your password?")) {
+  optionsArray = optionsArray.concat(upperCaseArray);
+} else if (confirm("Do you want number characters in your password?")) {
+  optionsArray = optionsArray.concat(numbersArray);
+} else if (confirm("Do you want special characters in your password?")) {
+  optionsArray = optionsArray.concat(specialCharactersArray);
+}
 
-// if (passwordLength === NaN) {
-//   alert("Please pick a valid number");
-// }
-
-// console.log(passwordLengthNumber);
-// const passwordLengthNumber = parseInt(passwordLength);
-
-// function isNumber(passwordLengthNumber) {
-//   if (passwordLengthNumber === NaN) {
-//     alert("Please pick a valid number");
-//   }
-// }
-
-// isLowercase = confirm(do you want) etc
-
-// declare optionsArray
-
-// if (isLowercase) optionsArray.concat()
+// make sure they pick at least 1 option
 
 // shuffle array
 
