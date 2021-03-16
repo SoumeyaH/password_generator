@@ -108,10 +108,38 @@ const specialCharactersArray = [
 ];
 
 // prompt user for length of password store as variable
-
 // convert string to number parseInt()
 
 // validated length of password
+
+const passwordLength = prompt("What length password do you want?");
+console.log(typeof passwordLength, passwordLength);
+
+if (passwordLength >= 8 && passwordLength <= 128) {
+  console.log("yes");
+} else {
+  alert("Please pick a password length between 8 and 128");
+}
+
+const passwordLengthNumber = parseInt(passwordLength);
+console.log(typeof passwordLengthNumber, passwordLengthNumber);
+
+// function validatedPasswordLength(passwordLengthNumber) {
+
+// }
+
+// if (passwordLength === NaN) {
+//   alert("Please pick a valid number");
+// }
+
+// console.log(passwordLengthNumber);
+// const passwordLengthNumber = parseInt(passwordLength);
+
+// function isNumber(passwordLengthNumber) {
+//   if (passwordLengthNumber === NaN) {
+//     alert("Please pick a valid number");
+//   }
+// }
 
 // isLowercase = confirm(do you want) etc
 
