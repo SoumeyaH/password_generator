@@ -186,11 +186,9 @@ console.log(optionsArray);
 
 // password array doesnt want to be array
 for (let i = 0; i < passwordLengthNumber; i++) {
-  let arrayX = [];
   let x = optionsArray[Math.floor(Math.random() * optionsArray.length)];
-  arrayX.push(x);
+  let arrayX = [x];
   console.log(arrayX);
-  // console.log(x);
 }
 
 //change randomArray to string
