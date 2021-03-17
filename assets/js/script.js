@@ -117,6 +117,7 @@ if (passwordLength >= 8 && passwordLength <= 128) {
   console.log("yes");
 } else {
   alert("Your password length MUST be between 8 and 128");
+  // to do: break out at this point
 }
 
 // convert string to number parseInt()
@@ -164,6 +165,7 @@ console.log(optionsArray);
 // validate length of optionsArray
 if (optionsArray.length === 0) {
   alert("You must pick at least one character type for your password");
+  // to do: break out here
 }
 
 //use fisher yates algorithm to shuffle optionsArray
@@ -185,14 +187,17 @@ console.log(optionsArray);
 //store in randomArray
 
 // password array doesnt want to be array
+const arrayX = [];
 for (let i = 0; i < passwordLengthNumber; i++) {
-  let x = optionsArray[Math.floor(Math.random() * optionsArray.length)];
-  let arrayX = [x];
-  console.log(arrayX);
-}
+  let randomCharacter =
+    optionsArray[Math.floor(Math.random() * optionsArray.length)];
 
+  arrayX.push(randomCharacter);
+}
+console.log(arrayX);
 //change randomArray to string
 
 // .join('') - will do string with no commas
 
-//set up main function
+//set up make every thing functions
+//put in main function
