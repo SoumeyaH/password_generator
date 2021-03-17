@@ -188,13 +188,13 @@ console.log(optionsArray);
 for (let i = 0; i < passwordLengthNumber; i++) {
   let arrayX = [];
   let x = optionsArray[Math.floor(Math.random() * optionsArray.length)];
-  x = arrayX.push(x);
-  console.log(x);
+  arrayX.push(x);
+  console.log(arrayX);
+  // console.log(x);
 }
 
 //change randomArray to string
 
-// console.log(passwordArray.toString());
-// how to make it no commas
+// .join('') - will do string with no commas
 
 //set up main function
