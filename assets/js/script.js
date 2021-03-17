@@ -120,7 +120,8 @@ if (passwordLength >= 8 && passwordLength <= 128) {
 }
 
 // convert string to number parseInt()
-const passwordLengthNumber = parseInt(passwordLength);
+// added ,10
+const passwordLengthNumber = parseInt(passwordLength, 10);
 console.log(typeof passwordLengthNumber, passwordLengthNumber);
 
 //confirm which characters to put in password.
@@ -183,12 +184,17 @@ console.log(optionsArray);
 
 //store in randomArray
 
+// password array doesnt want to be array
+for (let i = 0; i < passwordLengthNumber; i++) {
+  let arrayX = [];
+  let x = optionsArray[Math.floor(Math.random() * optionsArray.length)];
+  x = arrayX.push(x);
+  console.log(x);
+}
+
 //change randomArray to string
 
-//set up main function
+// console.log(passwordArray.toString());
+// how to make it no commas
 
-for (i = 0; i < passwordLengthNumber; i++) {
-  let passwordArray[] =
-    optionsArray[Math.floor(Math.random() * optionsArray.length)];
-  console.log(passwordArray);
-}
+//set up main function
