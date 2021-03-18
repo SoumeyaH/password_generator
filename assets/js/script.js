@@ -163,6 +163,7 @@ if (wantSpecialCharacters) {
 console.log(optionsArray);
 
 // validate length of optionsArray
+// to do change to if !isupper && resyt
 if (optionsArray.length === 0) {
   alert("You must pick at least one character type for your password");
   // to do: break out here
@@ -198,6 +199,8 @@ console.log(arrayX);
 //change randomArray to string
 
 // .join('') - will do string with no commas
+const password = arrayX.join("");
+console.log(password);
 
 //set up make every thing functions
 //put in main function
