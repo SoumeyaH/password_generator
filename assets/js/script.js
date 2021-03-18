@@ -108,22 +108,21 @@ let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // var password;
+  userPasswordLength();
+  validatePasswordLength();
+  passwordLengthStringToNumber();
+  confirmCharacterChoices();
+  createOptionsArray();
+  validateOptionsArray();
+  shuffleOptionsArray();
+  randomizeUserPassword();
+
+  var password = passwordArrayToString();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
   console.log(password);
 }
-
-userPasswordLength();
-validatePasswordLength();
-passwordLengthStringToNumber();
-confirmCharacterChoices();
-createOptionsArray();
-validateOptionsArray();
-shuffleOptionsArray();
-randomizeUserPassword();
-passwordArrayToString();
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
