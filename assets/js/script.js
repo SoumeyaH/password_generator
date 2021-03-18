@@ -1,4 +1,4 @@
-// Declaring global variables
+// declaring global variables
 const lowerCaseArray = [
   "a",
   "b",
@@ -100,6 +100,8 @@ let isUpperCase;
 let isLowercase;
 let isNumbers;
 let isSpecialCharacters;
+let optionsArray = [];
+let randomizedPasswordArray = [];
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -110,6 +112,13 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   userPasswordLength();
   validatePasswordLength();
+  passwordLengthStringToNumber();
+  confirmCharacterChoices();
+  createOptionsArray();
+  validateOptionsArray();
+  shuffleOptionsArray();
+  randomizeUserPassword();
+  passwordArrayToString();
 
   passwordText.value = password;
 }
@@ -118,7 +127,6 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // prompt user for length of password
-
 function userPasswordLength() {
   passwordLength = prompt("Pick a password length between 8 and 128");
   console.log(typeof passwordLength, passwordLength);
@@ -126,10 +134,9 @@ function userPasswordLength() {
 }
 
 // validated length of password
-
 function validatePasswordLength() {
   if (passwordLength >= 8 && passwordLength <= 128) {
-    console.log("yes");
+    return;
   } else {
     alert("Your password length MUST be between 8 and 128");
     // to do: break out at this point
@@ -137,59 +144,57 @@ function validatePasswordLength() {
 }
 
 // convert passwordLengthNumber from type string to type number
-
 function passwordLengthStringToNumber() {
   passwordLengthNumber = parseInt(passwordLength, 10);
   console.log(typeof passwordLengthNumber, passwordLengthNumber);
   return passwordLengthNumber;
 }
 
-//confirm which characters to put in password.
-const wisLowercase = confirm(
-  "Do you want lowercase characters in your password?"
-);
-const wisUpperCase = confirm(
-  "Do you want uppercase characters in your password?"
-);
-const wisNumbers = confirm("Do you want number characters in your password?");
+// confirm which characters user wants to put in password
+function confirmCharacterChoices() {
+  isLowercase = confirm("Do you want lowercase characters in your password?");
 
-const wisSpecialCharacters = confirm(
-  "Do you want special characters in your password?"
-);
+  isUpperCase = confirm("Do you want uppercase characters in your password?");
 
-// declare options array
-let optionsArray = [];
-console.log(optionsArray);
+  isNumbers = confirm("Do you want number characters in your password?");
 
-//if yes add to options array.
-if (istLowercase) {
-  optionsArray = optionsArray.concat(lowerCaseArray);
+  isSpecialCharacters = confirm(
+    "Do you want special characters in your password?"
+  );
 }
-console.log(optionsArray);
 
-if (isUpperCase) {
-  optionsArray = optionsArray.concat(upperCaseArray);
-}
-console.log(optionsArray);
-if (istNumbers) {
-  optionsArray = optionsArray.concat(numbersArray);
-}
-console.log(optionsArray);
+// add user characters choices to an array
+function createOptionsArray() {
+  if (isLowercase) {
+    optionsArray = optionsArray.concat(lowerCaseArray);
+  }
+  console.log(optionsArray);
 
-if (wisSpecialCharacters) {
-  optionsArray = optionsArray.concat(specialCharactersArray);
+  if (isUpperCase) {
+    optionsArray = optionsArray.concat(upperCaseArray);
+  }
+  console.log(optionsArray);
+  if (istNumbers) {
+    optionsArray = optionsArray.concat(numbersArray);
+  }
+  console.log(optionsArray);
+
+  if (isSpecialCharacters) {
+    optionsArray = optionsArray.concat(specialCharactersArray);
+  }
+  return optionsArray;
 }
-console.log(optionsArray);
 
 // validate length of optionsArray
-// to do change to if !isupper && resyt
-if (optionsArray.length === 0) {
-  alert("You must pick at least one character type for your password");
-  // to do: break out here
+function validateOptionsArray() {
+  if (optionsArray.length === 0) {
+    alert("You must pick at least one character type for your password");
+    // to do: break out here
+  }
 }
 
-//use fisher yates algorithm to shuffle optionsArray
-let shuffleArray = function (arr) {
+// use fisher yates algorithm to shuffle optionsArray
+function shuffleOptionsArray() {
   let newPosition, temp;
   for (let i = optionsArray.length - 1; i > 0; i--) {
     newPosition = Math.floor(Math.random() * (i + 1));
@@ -197,29 +202,19 @@ let shuffleArray = function (arr) {
     arr[i] = arr[newPosition];
     arr[newPosition] = temp;
   }
-};
-
-shuffleArray(optionsArray);
-console.log(optionsArray);
+}
 
 // get random optionsArray character using index using passwordlengthNumber
-
-//store in randomArray
-
-// password array doesnt want to be array
-const arrayX = [];
-for (let i = 0; i < passwordLengthNumber; i++) {
-  let randomCharacter =
-    optionsArray[Math.floor(Math.random() * optionsArray.length)];
-
-  arrayX.push(randomCharacter);
+function randomizeUserPassword() {
+  for (let i = 0; i < passwordLengthNumber; i++) {
+    let randomCharacter =
+      optionsArray[Math.floor(Math.random() * optionsArray.length)];
+    randomizedPasswordArray.push(randomCharacter);
+  }
 }
-console.log(arrayX);
+
 //change randomArray to string
-
-// .join('') - will do string with no commas
-const password = arrayX.join("");
-console.log(password);
-
-//set up make every thing functions
-//put in main function
+function passwordArrayToString() {
+  const password = arrayX.join("");
+  return password;
+}
