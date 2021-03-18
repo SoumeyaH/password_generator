@@ -101,8 +101,8 @@ let isUpperCase;
 let isLowercase;
 let isNumbers;
 let isSpecialCharacters;
-let optionsArray = [];
-let randomizedPasswordArray = [];
+const optionsArray = [];
+const randomizedPasswordArray = [];
 
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
