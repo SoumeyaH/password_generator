@@ -128,6 +128,14 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+// to do make it stop appending new password to old
+// generateBtn.addEventListener("click", refreshPage);
+
+// reloads page when button clicked
+// function refreshPage() {
+//   window.location.reload();
+// }
+
 // prompt user for length of password
 function userPasswordLength() {
   passwordLength = prompt("Pick a password length between 8 and 128");
