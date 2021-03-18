@@ -1,3 +1,5 @@
+// to do each time i hit generate it just adds to old password
+
 // declaring global variables
 const lowerCaseArray = [
   "a",
@@ -94,7 +96,6 @@ const specialCharactersArray = [
   "~",
 ];
 
-// to do make consts
 let passwordLength;
 let passwordLengthNumber;
 let isUpperCase;
