@@ -1,18 +1,4 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-// declare arrays
+// Declaring global variables
 const lowerCaseArray = [
   "a",
   "b",
@@ -108,33 +94,66 @@ const specialCharactersArray = [
   "~",
 ];
 
-// prompt user for length of password store as variable
-const passwordLength = prompt("Pick a password length between 8 and 128");
-console.log(typeof passwordLength, passwordLength);
+let passwordLength;
+let passwordLengthNumber;
+let isUpperCase;
+let isLowercase;
+let isNumbers;
+let isSpecialCharacters;
 
-// validated length of password
-if (passwordLength >= 8 && passwordLength <= 128) {
-  console.log("yes");
-} else {
-  alert("Your password length MUST be between 8 and 128");
-  // to do: break out at this point
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  userPasswordLength();
+  validatePasswordLength();
+
+  passwordText.value = password;
 }
 
-// convert string to number parseInt()
-// added ,10
-const passwordLengthNumber = parseInt(passwordLength, 10);
-console.log(typeof passwordLengthNumber, passwordLengthNumber);
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+// prompt user for length of password
+
+function userPasswordLength() {
+  passwordLength = prompt("Pick a password length between 8 and 128");
+  console.log(typeof passwordLength, passwordLength);
+  return passwordLength;
+}
+
+// validated length of password
+
+function validatePasswordLength() {
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    console.log("yes");
+  } else {
+    alert("Your password length MUST be between 8 and 128");
+    // to do: break out at this point
+  }
+}
+
+// convert passwordLengthNumber from type string to type number
+
+function passwordLengthStringToNumber() {
+  passwordLengthNumber = parseInt(passwordLength, 10);
+  console.log(typeof passwordLengthNumber, passwordLengthNumber);
+  return passwordLengthNumber;
+}
 
 //confirm which characters to put in password.
-const wantLowercase = confirm(
+const wisLowercase = confirm(
   "Do you want lowercase characters in your password?"
 );
-const wantUpperCase = confirm(
+const wisUpperCase = confirm(
   "Do you want uppercase characters in your password?"
 );
-const wantNumbers = confirm("Do you want number characters in your password?");
+const wisNumbers = confirm("Do you want number characters in your password?");
 
-const wantSpecialCharacters = confirm(
+const wisSpecialCharacters = confirm(
   "Do you want special characters in your password?"
 );
 
@@ -143,21 +162,21 @@ let optionsArray = [];
 console.log(optionsArray);
 
 //if yes add to options array.
-if (wantLowercase) {
+if (istLowercase) {
   optionsArray = optionsArray.concat(lowerCaseArray);
 }
 console.log(optionsArray);
 
-if (wantUpperCase) {
+if (isUpperCase) {
   optionsArray = optionsArray.concat(upperCaseArray);
 }
 console.log(optionsArray);
-if (wantNumbers) {
+if (istNumbers) {
   optionsArray = optionsArray.concat(numbersArray);
 }
 console.log(optionsArray);
 
-if (wantSpecialCharacters) {
+if (wisSpecialCharacters) {
   optionsArray = optionsArray.concat(specialCharactersArray);
 }
 console.log(optionsArray);
