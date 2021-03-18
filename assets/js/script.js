@@ -94,6 +94,7 @@ const specialCharactersArray = [
   "~",
 ];
 
+// to do make consts
 let passwordLength;
 let passwordLengthNumber;
 let isUpperCase;
@@ -121,7 +122,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  console.log(password);
 }
 
 // Add event listener to generate button
@@ -130,7 +130,6 @@ generateBtn.addEventListener("click", writePassword);
 // prompt user for length of password
 function userPasswordLength() {
   passwordLength = prompt("Pick a password length between 8 and 128");
-  console.log(typeof passwordLength, passwordLength);
   return passwordLength;
 }
 
@@ -141,13 +140,13 @@ function validatePasswordLength() {
   } else {
     alert("Your password length MUST be between 8 and 128");
     // to do: break out at this point
+    return false;
   }
 }
 
 // convert passwordLengthNumber from type string to type number
 function passwordLengthStringToNumber() {
   passwordLengthNumber = parseInt(passwordLength, 10);
-  console.log(typeof passwordLengthNumber, passwordLengthNumber);
   return passwordLengthNumber;
 }
 
@@ -169,21 +168,17 @@ function createOptionsArray() {
   if (isLowercase) {
     optionsArray = optionsArray.concat(lowerCaseArray);
   }
-  console.log(optionsArray);
 
   if (isUpperCase) {
     optionsArray = optionsArray.concat(upperCaseArray);
   }
-  console.log(optionsArray);
   if (isNumbers) {
     optionsArray = optionsArray.concat(numbersArray);
   }
-  console.log(optionsArray);
 
   if (isSpecialCharacters) {
     optionsArray = optionsArray.concat(specialCharactersArray);
   }
-  console.log(optionsArray);
   return optionsArray;
 }
 
@@ -207,7 +202,7 @@ function shuffleOptionsArray() {
   }
 }
 
-// get random optionsArray character using index using passwordlengthNumber
+// get random optionsArray character using index using passwordLengthNumber
 function randomizeUserPassword() {
   for (let i = 0; i < passwordLengthNumber; i++) {
     let randomCharacter =
@@ -220,6 +215,5 @@ function randomizeUserPassword() {
 //change randomArray to string
 function passwordArrayToString() {
   const userPassword = randomizedPasswordArray.join("");
-  console.log(userPassword);
   return userPassword;
 }
