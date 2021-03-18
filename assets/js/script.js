@@ -104,12 +104,15 @@ let optionsArray = [];
 let randomizedPasswordArray = [];
 
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = passwordArrayToString();
   var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
   userPasswordLength();
   validatePasswordLength();
   passwordLengthStringToNumber();
@@ -118,9 +121,6 @@ function writePassword() {
   validateOptionsArray();
   shuffleOptionsArray();
   randomizeUserPassword();
-  passwordArrayToString();
-
-  passwordText.value = password;
 }
 
 // Add event listener to generate button
@@ -174,7 +174,7 @@ function createOptionsArray() {
     optionsArray = optionsArray.concat(upperCaseArray);
   }
   console.log(optionsArray);
-  if (istNumbers) {
+  if (isNumbers) {
     optionsArray = optionsArray.concat(numbersArray);
   }
   console.log(optionsArray);
@@ -182,6 +182,7 @@ function createOptionsArray() {
   if (isSpecialCharacters) {
     optionsArray = optionsArray.concat(specialCharactersArray);
   }
+  console.log(optionsArray);
   return optionsArray;
 }
 
@@ -196,6 +197,7 @@ function validateOptionsArray() {
 // use fisher yates algorithm to shuffle optionsArray
 function shuffleOptionsArray() {
   let newPosition, temp;
+  let arr = [];
   for (let i = optionsArray.length - 1; i > 0; i--) {
     newPosition = Math.floor(Math.random() * (i + 1));
     temp = arr[i];
@@ -211,10 +213,12 @@ function randomizeUserPassword() {
       optionsArray[Math.floor(Math.random() * optionsArray.length)];
     randomizedPasswordArray.push(randomCharacter);
   }
+  console.log(randomizedPasswordArray);
 }
 
 //change randomArray to string
 function passwordArrayToString() {
-  const password = arrayX.join("");
+  const password = randomizedPasswordArray.join("");
+  console.log(password);
   return password;
 }
