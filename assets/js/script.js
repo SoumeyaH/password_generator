@@ -1,5 +1,3 @@
-// to do each time i hit generate it just adds to old password
-
 // declaring global variables
 const lowerCaseArray = [
   "a",
@@ -123,28 +121,17 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
+  randomizedPasswordArray = [];
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", refreshPage);
+
 generateBtn.addEventListener("click", writePassword);
-
-// to do make it stop appending new password to old
-// generateBtn.addEventListener("click", refreshPage);
-
-// reloads page when button clicked
-// function refreshPage() {
-//   window.location.reload();
-// }
 
 // prompt user for length of password
 function userPasswordLength() {
   passwordLength = prompt("Pick a password length between 8 and 128");
   return passwordLength;
-}
-
-function refreshPage() {
-  window.location.reload();
 }
 
 // validated length of password
@@ -154,7 +141,6 @@ function validatePasswordLength() {
   } else {
     alert("Your password length MUST be between 8 and 128");
     userPasswordLength();
-    // refreshPage();
   }
 }
 
@@ -200,8 +186,6 @@ function createOptionsArray() {
 function validateOptionsArray() {
   if (optionsArray.length === 0) {
     alert("You must pick at least one character type for your password");
-    //  todo remember password length
-    confirmCharacterChoices();
   }
 }
 
