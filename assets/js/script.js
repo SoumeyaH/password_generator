@@ -218,7 +218,7 @@ function randomizeUserPassword() {
       optionsArray[Math.floor(Math.random() * optionsArray.length)];
     randomizedPasswordArray.push(randomCharacter);
   }
-  console.log(randomizedPasswordArray);
+  return randomizedPasswordArray;
 }
 
 //change randomArray to string
