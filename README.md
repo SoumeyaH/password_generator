@@ -24,4 +24,8 @@
 
 ### Pre-Password Generator
 
+![Before Password Generator](./assets/images/before-password-generator.png)
+
 ### Post-Password Generator
+
+![After Password Generator](./assets/images/after-password-generator.png)
