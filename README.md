@@ -31,11 +31,12 @@ We were given starter code to modify so that the application generated a random 
     - Uppercase letters
     - Special characters
 - To accomplish this we used declarative functional code.
-- Functions were created to handle individual tasks such as prompting the user for a password or validating the password length.
+- Functions were created to handle individual tasks such as prompting the user for a password length, validating the password length, prompting the user for characters etc.
+- The user inputs were collected using prompt and confirms.
 - The choices of characters were stored in an array that was shuffled using the Fisher-Yates shuffle to make sure to randomize as much as possible.
 - The Javascript code was formatted using lint (prettier).
 
-In the future to ensure that the randomized password always contains the user selected characters, especially when the password length is shorter, I would change the array that stores the options from being a single array with all the elements shuffled inside to an array of arrays. That randomly choice between the arrays before then randomly choosing an element from inside an array.
+In the future to ensure that the randomized password always contains the user selected characters, especially when the password length is shorter, I would change the array that stores the options from being a single array with all the elements shuffled inside to an array of arrays. That randomly chooses between the arrays (numbers, lowercase, uppercase, special characters) before then randomly choosing an element from inside an array.
 
 ## Getting Started
 
