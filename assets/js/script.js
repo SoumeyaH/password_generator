@@ -126,6 +126,7 @@ function writePassword() {
 }
 
 // Add event listener to generate button
+generateBtn.addEventListener("click", refreshPage);
 generateBtn.addEventListener("click", writePassword);
 
 // to do make it stop appending new password to old
@@ -142,14 +143,18 @@ function userPasswordLength() {
   return passwordLength;
 }
 
+function refreshPage() {
+  window.location.reload();
+}
+
 // validated length of password
 function validatePasswordLength() {
   if (passwordLength >= 8 && passwordLength <= 128) {
     return;
   } else {
     alert("Your password length MUST be between 8 and 128");
-    // to do: break out at this point
-    return false;
+    userPasswordLength();
+    // refreshPage();
   }
 }
 
@@ -195,7 +200,8 @@ function createOptionsArray() {
 function validateOptionsArray() {
   if (optionsArray.length === 0) {
     alert("You must pick at least one character type for your password");
-    // to do: break out here
+    //  todo remember password length
+    confirmCharacterChoices();
   }
 }
 
